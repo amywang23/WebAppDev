@@ -1,0 +1,51 @@
+body {
+			font-family: Helvetica, "Trebuchet MS", Verdana, sans-serif;
+		}
+
+		div {
+			text-align: center;
+		}
+		.section_controls {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.button_holder {
+			margin: auto;   /*working with containing div, this centers content*/
+			list-style: none;	/*to remove dot buttons*/
+			padding: 0; /*to remove padding at start*/
+			display: flex;
+		    align-items: flex-start;
+			flex-wrap: wrap;  /*so not all in one row*/
+			line-height: 50px; /*to set line height*/
+		}
+		.questions {
+			width: 720px;
+			border: 2px solid #AAA;
+		}
+		.controls {
+			padding: 15px;
+			width: 360px;
+			/*display: inline-block;*/
+		}
+		.button_holder li {
+			width: 150px;
+			margin: 15px;
+			background-color: #D3D3D3;
+		}
+		#btn_start {
+			background-color: green;
+		}
+		#btn_reset {
+			background-color: #BBB; 
+		}
+		.display_container {
+			width: 250px;
+			padding: 15px;
+			margin: 0px;
+			border: 2px solid #AAA;
+			text-align: center;
+		}
+		.bigger_font {
+			font-size: 1.2em;
+			font-weight: bold; 
+		}

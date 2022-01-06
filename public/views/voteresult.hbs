@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vote Result Page</title>
+</head>
+<body>
+    <p> Thank you for voting! </p>
+	<div>
+	    {{#each stunt_data}}
+		<p>Name: {{this.full_name}}  - Number of Votes: {{this.count}}</p>
+	    {{/each}}
+	</div>
+</body>
+</html>

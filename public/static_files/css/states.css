@@ -1,0 +1,77 @@
+.displayContainer_1 {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 0;
+    width: 55%;    
+}
+
+.displayContainer_1 svg path {
+    fill: #AAA;
+    transition: fill .4s ease-out; 
+}
+ 
+
+.displayContainer_1 svg path:hover {
+    fill:#FFF;
+    stroke:black;
+    pointer-events:all;
+}
+
+div {
+    text-align: center;
+}
+.section_controls {
+    display: inline-block;
+    vertical-align: middle;
+}
+.button_holder {
+    margin: auto;   /*working with containing div, this centers content*/
+    list-style: none;	/*to remove dot buttons*/
+    padding: 0; /*to remove padding at start*/
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;  /*so not all in one row*/
+    line-height: 50px; /*to set line height*/
+}
+.questions {
+    width: 720px;
+    border: 2px solid #AAA;
+}
+#questions {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.controls {
+    padding: 15px;
+    width: 560px;
+    /*display: inline-block;*/
+}
+.button_holder li {
+    width: 150px;
+    margin: 15px;
+    background-color: #D3D3D3;
+}
+#btn_start {
+    background-color: green;
+}
+#btn_reset {
+    background-color: #BBB; 
+}
+.display_container {
+    width: 250px;
+    padding: 15px;
+    margin: 0px;
+    border: 2px solid #AAA;
+    text-align: center;
+}
+.bigger_font {
+    font-size: 1.2em;
+    font-weight: bold; 
+}
+.active {
+    background-color: #008000 !important;
+}
+.inactive {
+    background-color: #BBB !important;
+}

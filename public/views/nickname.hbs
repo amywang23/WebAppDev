@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nick Name</title>
+</head>
+<body>
+
+
+<h2>Please enter your new nick name</h2>
+
+<form action="./nicknamesubmit" method="get">
+	<label for="id_nickname">Nick Name</label>
+	<input type="text" id="id_nickname" name="f_nickname" value="{{nickname}}"><br>
+	
+	<input type="hidden" id="id_fullname" name="f_fullname" value="{{fullname}}">
+	<input type="hidden" id="id_oldnickname" name="f_oldnickname" value="{{nickname}}">
+	<button type="submit" value="Submit">Submit</button>
+</form> 
+
+
+
+</body>
+</html>

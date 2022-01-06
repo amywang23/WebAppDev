@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div class="content">
+    <h4>Press the button to see an AJAX example</h4>
+    <button type="button" onclick="fetchFromServer()">Press Me!</button>
+
+    <p id="response_area"></p>
+</div>
+
+<div>
+    <h4>What is going on here</h4>
+    <p>This page gives a very basic Ajax example. But what is Ajax?</p>
+    <p>Ajax is the process by which a web page can go off and fetch information from an endpoint on a server without actually doing a page reload. Typically up to this point, we’ve wanted new information from the server (like a vote count or something) we've needed to actually refresh the page or submit a new form or something like that.</p>
+    <p>Ajax is going to allow us to do is to make that request from the browser to the server without actually needing a complete page refresh. What these requests tend to grab from the server are not full pages, but rather snippets of information in the context of JSON objects that can be parsed and inserted back into the body of the page on the client.</p>
+</div>
+
+<div>
+    <h4>The code</h4>
+        <pre><code>
+function fetchFromServer() {
+    
+    var ajax_params = {
+        'url'     : "https://user.tjhsst.edu/pckosek/ajax_worker",
+        'type'    : "get",
+        'success' : onServerResponse    // the name of the callback function to call
+    }
+    
+    // run AJAX function 
+    $.ajax( ajax_params )
+}
+
+function onServerResponse (responseObject) {
+    console.log(responseObject)
+    document.getElementById('response_area').innerHTML = responseObject.count;
+    
+}
+        </pre></code>
+</div>
+
+<div>
+    <h4>Explanation</h4>
+    <p>The process starts when the <code>fetchFromServer()</code> method is called. In this case I've bound this method to the "Press Me" button - but you could equally well call this method from the developer tools console (i.e. you should in the course of figuring out how this all works).</p>
+    <p>The first step of the <code>fetchFromServer</code> method is to construct a parameters object. This object contains the endpoint to be requested (<a href="https://user.tjhsst.edu/pckosek/ajax_worker" target="_blank">https://user.tjhsst.edu/pckosek/ajax_worker</a>) as well as a callback function to be called when the response is received. The callback function <code>onServerResponse</code> is attached as the value of to the key 'success'. Finally we perform the Ajax request <code>$.ajax(ajax_params)</code> and pass it the parameters that define our request.</p>
+    <p>The callback function (i.e. <code>onServerResponse</code>)is when Ajax has completed the external request. the argument (in this case responseObject) has the contents of whatever the server (index.js) <code>res.send</code>ed or <code>res.render</code>ed. You should visit the endpoint used in this example, (<a href="https://user.tjhsst.edu/pckosek/ajax_worker" target="_blank">https://user.tjhsst.edu/pckosek/ajax_worker</a>) to see what the server is actuall rendering. The string output returned by the request (called <code>responseObject</code> here) that Ajax fetched is then stuffed back into the document.</p>
+
+    <p>full documentation HERE: <a target="_blank" href="https://api.jquery.com/jquery.ajax/">https://api.jquery.com/jquery.ajax/</a></p>
+    
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+function fetchFromServer() {
+    
+    var ajax_params = {
+        'url'     : "https://user.tjhsst.edu/pckosek/ajax_worker",
+        'type'    : "get",
+        'success' : onServerResponse    // the name of the callback function to call
+    }
+    
+    // run AJAX function 
+    $.ajax( ajax_params )
+}
+function onServerResponse (responseObject) {
+    // Jquery will automatically convert text to an object if it 
+    //  recognizes that the result is JSON
+    
+    console.log(responseObject)
+    
+    document.getElementById('response_area').innerHTML = responseObject.count;
+    
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The jQuery page</title>
+
+    <style type="text/css">
+    p.boxed {
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 5%;
+        margin-right: 10%;
+    }
+    </style>
+
+</head>
+<body>
+    <div>
+    	<h2>
+    	Welcome to my jQuery 101 page
+    	</h2>
+    	<p>
+    	    jQuery is a client-side javascript that is used primarily for animating pages. The documentation can be found 
+    	    <a href="https://api.jquery.com/">here</a>
+    	</p>
+    	<p class="boxed">
+            A note about jQuery: JQuery is not going to be a substitute for all client side JavaScript it Isn't that lightweight, It has a steep learning curve, and pretty much everything you can do in jQuery can be done and regular JavaScript.<br><br>
+            That said, we're going to be using a technique called 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank">XMLHttpRequest</a>
+            that is sufficiently complicated that I'm going to bypass the native implementation and go directly to the jQuery implementation so that you guys can be using it as fast as possible.<br><br>
+    	    
+    	    There's kind of a learning curve associated with using jQuery but once you get used to it and the dollar sign ($) notation things begin to make sense.
+    	</p>
+    	<h4>Using jQuery</h4>
+        <p>
+            The first thing to know about jQuery is that in order to make it work you have to include the jQuery JavaScript source code on your page. JQuery simply will not work unless you include the JavaScript source for jQuery on the page 
+    	</p>
+        <p>
+            Typically this means including a link to the jQuery Content Delivery Network (CDN) at the bottom of the body in the HTML. CDN's are places where the most up-to-date source code is hosted.
+    	</p>
+        <p>
+            If you look at the source of this page, at the bottom of the body you we'll see the following line<br>
+            <pre><code>
+    &ltscript src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            </code></pre>
+            All versions available via CDN can be seen (with instructions) on the page here: <a href="https://code.jquery.com/">https://code.jquery.com/</a><br>
+        </p>
+        
+        <h4>jQuery Example</h4>            	
+    	<p>
+    	    This page contains an example adapted from the code here: 
+    	    <a href="https://api.jquery.com/slideToggle/" target="_blank">https://api.jquery.com/slideToggle/</a>,<br>
+    	</p>
+
+    	<p id="clickme" class="boxed">Click anywhere in this box to toggle the secret word: <span id="secret">Xyzzy</span></p>
+        
+        
+        <p>This is the jQuery JavaScript code (at the bottom of the body on this page - look at the source!!) that animates the above text:
+        <pre><code>
+    $( "#clickme" ).click(function() {
+        $( "#secret" ).slideToggle( "slow", function() {
+            console.log('animation complete')
+        });
+    });
+        </code></pre>
+Long story short, this code: <ul>
+    
+<li>finds an item with an id of clickme <code> (#"clickme")</code> and defines a callback function to be run whenever the element with the id clickme is clicked.</li>
+<li>The callback function that is called when <code>#clickme</code> is clicked finds an element with the id secret (<code>#secret</code>) and it executes a toggle animation with parameter: slow (i.e. do a slow toggle)</li>
+<li>Finally there is a callback function that's run when the toggle animation is complete - in this case logging animation complete in the browser console.</li>
+</ul>
+
+            Here is the corresponding html. 
+        <pre><code>
+&ltp id="clickme" class="boxed">Click anywhere in this box to toggle the secret word: <span id="secret">Xyzzy</span></p>
+        </pre></code>
+            You should <span style="font-weight:bold">VIEW THE SOURCE</span> of this page to get a true sense of what is going on.
+
+            <span style="font-weight:bold">NOTE: jQuery is sometimes convenient, but is NOT the default choice for generic click events</span>
+        </p>        
+    </div>
+
+    <div>
+        <a href="./ajax_101"><h3>GO TO NEXT PAGE</h3></a>
+    </div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    $( "#clickme" ).click(function() {
+        $( "#secret" ).slideToggle( "slow", function() {
+            console.log('animation complete')
+        });
+    });
+    </script>
+
+</body>
+</html>

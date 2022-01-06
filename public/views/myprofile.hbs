@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>My Profile Page</title>
+    </head›
+   <body>
+      <p>
+      Name: {{user}}
+      </p>
+      <p>
+      Nick Name: {{nickname}} <a href="https://user.tjhsst.edu/2023awang/nickname?fullname={{user}}&nickname={{nickname}}" >Update Nickname</a>
+      </p>
+      <p>
+      Photo: <style>img {
+		width:50px;
+		height:60px;
+	}</style> <img src={{photo}} alt={{photo}}>
+      </p>
+      <p>
+      Counselor: {{counselor}}
+      </p>
+      <div id="score_message" style="border: 2px solid; width:400px; padding: 10px;">
+      <p> Hi buddy, <br>
+          You've earned a score of <span id="click_display" style="font-size: 24px; color: blueviolet;"></span> on the game in the Pemium Content. <br>
+          Good job! Happy playing time !!
+      </p>
+      </div>
+      <div id="space" style="height: 30px;"></div>
+      <div id="temperature_message" style="border: 2px solid; width:400px; padding: 10px;">
+      {{#if weatherinfo}}
+          
+        Hourly weather forecast for your Favorite Location at <br>
+        Latitude: {{weatherinfo.lat}}, Longitude: {{weatherinfo.long}}
+        <p>
+            
+            Temperature is {{weatherinfo.temperature}}
+        </p>          
+      {{else}}
+        You have not picked up Favorite Location on Weather page yet.
+      {{/if}}
+      </div>
+      <p>
+         <a href="https://user.tjhsst.edu/2023awang/logoutprofile" >Click here to logout</a>
+      </p>
+      
+      <script type="text/javascript" src="./js/myprofile.js"></script>
+   </body>
+</html>

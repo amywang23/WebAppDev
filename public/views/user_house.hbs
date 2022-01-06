@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/housepoints.css">
+    <style>
+    </style>
+    <title>House Points</title>
+</head>
+
+<body>
+    <script id="userhousetable-template" type="text/x-handlebars-template">
+    {{{template}}}
+    </script>
+
+    <div class="container">
+    	<h1>Welcome to House Points</h1>
+        <div id="showtype" class="shadow p-3 mb-5 bg-white rounded">
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary" onclick="location.href='adduserform'" >Add new user to house</button>
+                </div>
+                <div class="col">
+                    <input type="hidden" name="showmyinput" id="showmyinput" value="{{showmyinput}}">
+                    {{#if showmyinput }}
+                    <button class="btn btn-primary" onclick="displayAllInputs()">Show All Inputs</button>
+                    {{else}}
+                    <button class="btn btn-primary" onclick="displayMyInputs()">Show My Inputs</button>
+                    {{/if}}
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" onclick="location.href='./'" >Go back to Main</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <div id="points_sum" class="row">
+                {{#each house_points}}
+                <div class="col-md-5">
+                    <button type="button" class="btn btn-primary btn-lg mt-3 house-{{this.houseid}}"
+                    onclick="displayHouseUsers({{this.houseid}})">
+                    {{this.housename}} <span class="badge badge-light">{{this.points}}</span>
+                    </button>                
+                </div>
+                {{/each}}
+            </div>            
+        </div>
+
+        <div id="userhousedisplay" class="shadow p-3 mb-5 bg-white rounded" style="display:none;">
+            <div id="houseusersdisplay" >
+                <button class="btn btn-primary mb-3" onclick="hideHouseUsers()">Hide this section</button>
+                <table id="houseuserstable" class="table">
+                </table>
+            </div>
+
+            <div id="userhousedisplay" >
+                <table id="userhousetable" class="table">
+                </table>
+            </div>
+
+        </div>
+
+        <input type="hidden" name="offset" id="offset" value="{{offset}}">
+        <input type="hidden" name="totalcount" id="totalcount" value="{{totalcount}}">
+
+
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script type="text/javascript" src="js/houses.js"></script>
+
+</body>
+</html>

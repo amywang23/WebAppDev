@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Stunting Page</title>
+</head>
+<body>
+	<h1>Welcome to the stunts page</h1>
+    
+    <form action="./submitVote" method="get">
+	    <div>
+	        {{#each stunt_data}}
+		    <input type="radio" id="justid" name="stunt_id" value={{this.id}}>
+		    <label for="stunt">{{this.full_name}}<br> {{this.description}}</label><br>
+	        {{/each}}
+	    </div>
+	    
+	<button type="submit" value="Submit">Submit</button>
+	</form>
+</body>
+</html>

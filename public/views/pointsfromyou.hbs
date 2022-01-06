@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Housepoints: Points you have given</title>
+</head>
+<body>
+    <h3>
+        These are all the points that you have given to different characters!
+    </h3>
+    
+    {{#each dist}}
+        <li>{{this.user_name}}</li>
+        <li>{{this.amount}}</li><br><br>
+    {{/each}}
+    
+    <a href="https://user.tjhsst.edu/2023awang/" >Go back</a>
+    <br><br>
+    <a href="https://user.tjhsst.edu/2023awang/login" >Login to add points to individuals</a>
+    <br><br>
+    <a href="https://user.tjhsst.edu/2023awang/logout" >Click here to logout</a> <br><br>
+</body>
+</html>
